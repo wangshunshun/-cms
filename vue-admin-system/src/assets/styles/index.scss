@@ -1,0 +1,383 @@
+// ===================================
+// Vue Admin System - 全局样式
+// 简约大气的设计风格
+// ===================================
+
+// CSS 变量定义
+:root {
+  // 主色调 - 柔和的蓝色
+  --primary-color: #4a7cfa;
+  --primary-light: #6b93fc;
+  --primary-dark: #3366f0;
+  --primary-bg: rgba(74, 124, 250, 0.08);
+
+  // 中性色
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+
+  // 背景色
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sidebar: #0f172a;
+  --bg-sidebar-hover: #1e293b;
+
+  // 边框色
+  --border-color: #e5e7eb;
+  --border-light: #f3f4f6;
+
+  // 阴影
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  // 圆角
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  // 过渡
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
+}
+
+// 重置样式
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 滚动条美化
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+// 选中文本样式
+::selection {
+  background: rgba(74, 124, 250, 0.15);
+  color: var(--text-primary);
+}
+
+// 链接样式
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+// NProgress 自定义样式
+#nprogress {
+  .bar {
+    background: var(--primary-color) !important;
+    height: 2px !important;
+  }
+
+  .peg {
+    box-shadow: 0 0 10px var(--primary-color), 0 0 5px var(--primary-color) !important;
+  }
+}
+
+// 过渡动画
+.fade-transform-enter-active,
+.fade-transform-leave-active {
+  transition: all var(--transition-normal);
+}
+
+.fade-transform-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+// ============ Element Plus 覆盖样式 ============
+
+// 按钮样式
+.el-button {
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--primary-color);
+  --el-button-border-color: var(--primary-color);
+  --el-button-hover-bg-color: var(--primary-light);
+  --el-button-hover-border-color: var(--primary-light);
+  --el-button-active-bg-color: var(--primary-dark);
+  --el-button-active-border-color: var(--primary-dark);
+}
+
+.el-button:hover {
+  transform: translateY(-1px);
+}
+
+.el-button:active {
+  transform: translateY(0);
+}
+
+// 卡片样式
+.el-card {
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.el-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+// 对话框样式
+.el-dialog {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.el-dialog__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+  margin-right: 0;
+}
+
+.el-dialog__body {
+  padding: 24px;
+}
+
+.el-dialog__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-light);
+}
+
+// 表格样式
+.el-table {
+  --el-table-border-color: var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  background-color: #f9fafb !important;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: #fafbfc;
+}
+
+// 输入框样式
+.el-input__wrapper {
+  border-radius: var(--radius-md) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast) !important;
+}
+
+.el-input__wrapper:hover {
+  border-color: #c0c4cc;
+}
+
+.el-input__wrapper.is-focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-bg) !important;
+}
+
+.el-select__wrapper {
+  border-radius: var(--radius-md) !important;
+}
+
+// 分页样式
+.el-pagination {
+  --el-pagination-button-bg-color: var(--bg-card);
+  --el-pagination-hover-color: var(--primary-color);
+}
+
+.el-pagination button {
+  border-radius: var(--radius-sm) !important;
+}
+
+// 标签样式
+.el-tag {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+// 下拉菜单样式
+.el-dropdown-menu {
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+}
+
+.el-dropdown-menu__item {
+  border-radius: var(--radius-sm);
+  margin: 2px 0;
+  padding: 8px 16px;
+}
+
+// ============ 通用布局样式 ============
+
+// 搜索表单样式
+.search-form {
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+
+  .el-form-item {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+
+  .el-input, .el-select {
+    width: 200px;
+  }
+}
+
+// 表格容器样式
+.table-container {
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.table-header {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+// 分页样式
+.pagination-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+// 卡片统计样式
+.stat-card {
+  .el-card__body {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+  }
+
+  .stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+
+    .el-icon {
+      font-size: 26px;
+      color: #fff;
+    }
+  }
+
+  .stat-content {
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+  }
+}
+
+// ============ 暗黑主题 ============
+[data-theme='dark'] {
+  --bg-color: #0f172a;
+  --text-color: #e5eaf3;
+  --border-color: #334155;
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .navbar {
+    background-color: #1e293b;
+    border-bottom-color: var(--border-color);
+  }
+
+  .app-main {
+    background-color: var(--bg-color);
+  }
+
+  .search-form,
+  .table-container {
+    background-color: #1e293b;
+  }
+
+  .el-card {
+    background-color: #1e293b;
+  }
+
+  .tags-view-container {
+    background-color: #1e293b;
+    border-bottom-color: var(--border-color);
+
+    .tags-view-item {
+      background-color: #1e293b;
+      border-color: var(--border-color);
+      color: var(--text-color);
+
+      &.active {
+        background-color: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}

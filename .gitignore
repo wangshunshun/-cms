@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Frontend
+vue-admin-system/node_modules/
+vue-admin-system/dist/
+vue-admin-system/.vite/
+
+# Backend
+vue-admin-system-backend/target/
+vue-admin-system-backend/.m2repo/
+
+# Runtime artifacts
+uploads/
