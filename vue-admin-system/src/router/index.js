@@ -4,7 +4,7 @@ import { useUserStore } from '@/store/modules/user'
 import { staticRoutes } from './routes'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: staticRoutes,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })
